@@ -239,6 +239,10 @@ h2.features-text::after {
 	content: "";
 }
 
+.hidden {
+	display: none;
+}
+
 .iconing {
 	text-align: center;
 	width: 80px;
@@ -253,9 +257,17 @@ h2.features-text::after {
 	display: block;
 	border-radius: 50%;
 	background: rgba(255, 255, 255, 0.1);
-	width: 80px;
-	height: 80px;
-	line-height: 80px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.iconing i:hover {
+	color: #aaa;
+}
+
+.iconing i:hover {
+	color: #aaa;
 }
 
 .icon-box {
@@ -470,6 +482,10 @@ h2.portfolio-text::after {
 .contact-form,
 .address-space {
 	margin-top: 20px;
+}
+
+.features .iconing a:hover {
+	text-decoration: none;
 }
 
 .form-effect {

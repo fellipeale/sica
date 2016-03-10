@@ -1,10 +1,12 @@
 Venues = new Mongo.Collection('venues');
+Pools = new Mongo.Collection('pools');
 
 if (Meteor.isClient) {
+    Meteor.subscribe('pools');
     Meteor.subscribe('venueSearch');
     
     Meteor.startup(function () {
-        ReactDOM.render(<App />, document.getElementById('render-target'));
+        ReactDOM.render(<Routes />, document.getElementById('render-target'));
     });
 }
 
@@ -12,6 +14,10 @@ if (Meteor.isServer) {
     Meteor.startup(function () {
         // code to run on server at startup
     });
+
+    Meteor.publish('pools', function() {
+        return Pools.find({});
+    })
 
     Meteor.publish('venueSearch', function () {
         var self = this;
@@ -73,3 +79,18 @@ if (Meteor.isServer) {
     }
     
 }
+
+Meteor.methods({
+    addPool(pool) {
+        Pools.insert({
+            subject: pool.subject,
+            venues: pool.venues,
+            createdAt: new Date(),
+            finished: false
+        });
+    },
+    
+    removePool(poolId) {
+        Pools.remove(poolId);
+    }
+})

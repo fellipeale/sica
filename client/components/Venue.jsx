@@ -1,26 +1,21 @@
 Venue = React.createClass({
-	mixins: [ReactMeteorData],
-	
     propTypes: {
-        venue: React.PropTypes.object.isRequired  
+        venue: React.PropTypes.object.isRequired,
+        editMode: React.PropTypes.bool.isRequired
     },
-    
-    getMeteorData() {
-        return {
-            venues: Venues.find({}).fetch()
-        }
-    },
-    
+
     hideElement(attribute) {
     	return attribute ? '' : 'hidden';
     },
-    
+
     render() {
     	var photoLink =  this.props.venue.photos.length ? this.props.venue.photos[0].prefix + '120x130' + this.props.venue.photos[0].suffix : '';
     	
         return (
-            <div className="col-md-12 col-sm-12 col-xs-12 icon-box">
-                <VoteButton />
+            <div className="col-md-12 col-sm-12 col-xs-12">
+            	{
+            		!this.props.editMode ? <VoteButton venueId={this.props.venue.id} /> : ''
+            	}
                 
                 <div className="col-md-2 col-sm-3 col-xs-12">
                 	<a href="#">
@@ -29,7 +24,8 @@ Venue = React.createClass({
     			</div>
     			
                 <div className="col-md-8 col-sm-7 col-xs-12 icon-text-box">
-                    <h4>{this.props.venue.name}</h4><span>({this.props.venue.location.distance}m away)</span>
+                    <h4>{this.props.venue.name}</h4>
+                    <span>({this.props.venue.location.distance}m away)</span>
                     <p>{this.props.venue.location.formattedAddress.join(', ')}</p>
                     <div className="col-md-3 col-sm-6 col-xs-12">
 						<i className="fa fa-compass"></i>
@@ -54,6 +50,16 @@ Venue = React.createClass({
 					    </a>
 					</div>
 			    </div>
+			    
+			    {
+			    	this.props.editMode ? (
+			    		<div className="col-md-2 col-sm-2 col-xs-12">
+							<a href="#" onClick={this.props.onClick}>
+								<i className="fa fa-times"></i>
+							</a>
+						</div>
+			    	) : ''
+			    }
             </div>
         );
     }

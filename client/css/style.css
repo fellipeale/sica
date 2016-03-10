@@ -169,8 +169,7 @@ logo:active {
 	font-size: 15px;
 }
 
-.text-box p a.link-button {
-	text-decoration: none;
+a.link-button {
 	color: #fff;
 	border: #fff solid 1px;
 	padding: 15px 22px;
@@ -180,10 +179,11 @@ logo:active {
 	font-weight: 400;
 	background: rgba(255, 255, 255, 0.1);
 	transition: all 0.2s ease-in-out;
+	text-decoration: none;
 	font-family: 'Poppins', sans-serif;
 }
 
-.text-box p a.link-button:hover {
+a.link-button:hover {
 	background: rgba(255, 255, 255, 0.3);
 }
 
@@ -243,26 +243,22 @@ h2.features-text::after {
 	display: none;
 }
 
-.iconing {
+.vote-button {
 	text-align: center;
 	width: 80px;
 	margin: 5px auto;
 }
 
-.iconing i {
+.vote-button i {
 	font-size: 35px;
 	text-align: center;
 	color: #fff;
-	border: 1px solid #fff;
-	display: block;
-	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.1);
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
 }
 
-.iconing i:hover {
+.vote-button i:hover {
 	color: #aaa;
 }
 
@@ -288,6 +284,22 @@ h2.features-text::after {
 	font-weight: 400;
 	font-size: 15px;
 	color: #2E2E2E;
+}
+
+i.fa {
+	margin: auto 5px;
+}
+
+.gold {
+	color: #FFD700;
+}
+
+.silver {
+	color: #C0C0C0;
+}
+
+.bronze {
+	color:  #CD7F32;
 }
 
 .notes {
@@ -346,6 +358,29 @@ h2.portfolio-text::after {
 	background: #8ab839 none repeat scroll 0% 0%;
 	content: "";
 }
+
+.new-pool input {
+  	box-sizing: border-box;
+  	padding: 10px 0;
+  	background: transparent;
+  	border: none;
+  	width: 100%;
+}
+
+.new-pool input:focus{
+  	outline: 0;
+}
+
+/*
+form.new-pool::after {
+	display: block;
+	margin: 17px auto 0px;
+	width: 80px;
+	height: 1px;
+	background: #FFF none repeat scroll 0% 0%;
+	content: "";
+}
+*/
 
 .work-list a .featured-img {
 	width: 100%;
@@ -555,7 +590,7 @@ input[placeholder],
 	.text-box h3 {
 		font-size: 16px;
 	}
-	.text-box p a.link-button {
+	.link-button {
 		padding: 8px 14px;
 		font-size: 13px;
 	}
@@ -588,7 +623,7 @@ input[placeholder],
 	.text-box h3 {
 		font-size: 16px;
 	}
-	.text-box p a.link-button {
+	.link-button {
 		padding: 8px 14px;
 		font-size: 13px;
 	}

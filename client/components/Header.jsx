@@ -1,3 +1,7 @@
+const {
+  Link
+} = ReactRouter;
+
 Header = React.createClass({
     render() {
         return (
@@ -9,7 +13,7 @@ Header = React.createClass({
             					    <button type="button" className="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
             					        <span className="glyphicon glyphicon-align-justify"></span>
             					    </button>
-                  					<a className="navbar-brand logo" href="#">SICA</a>
+                  					<Link className="navbar-brand logo" to="/">SICA</Link>
                 			</div>
             			</div>
             			<div className="col-md-8">

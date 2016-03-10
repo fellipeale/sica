@@ -3,7 +3,7 @@ App = React.createClass({
         return (
             <div>
                 <Header />
-                <VoteTable />
+                {this.props.children}
                 <Footer />
             </div>
         );

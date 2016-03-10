@@ -1,15 +1,15 @@
-VoteTable = React.createClass({
+PoolTable = React.createClass({
     mixins: [ReactMeteorData],
     
     getMeteorData() {
         return {
-            venues: Venues.find({}).fetch()
-        }
+            pools: Pools.find({}, {sort: {createdAt: -1}}).fetch()
+        };
     },
     
-    renderVenues() {
-        return this.data.venues.map(function (venue) {
-            return <Venue key={venue.id} venue={venue} editMode={false} /> 
+    renderPools() {
+        return this.data.pools.map((pool) => {
+            return <PoolSummary key={pool._id} pool={pool} />;
         });
     },
     
@@ -18,8 +18,8 @@ VoteTable = React.createClass({
             <div className="container-fluid features" id="section2">
             	<div className="container">
             		<div className="row">
-            		    <h2 className="text-center features-text">Pool Topic</h2>
-            		    {this.renderVenues()}
+            		    <PoolCreation />
+            		    {this.renderPools()}
             		</div>
             	</div>
             </div>
